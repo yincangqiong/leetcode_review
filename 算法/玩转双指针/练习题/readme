@@ -12,3 +12,28 @@ class Solution(object):
             else:
                 high+=1
         return False
+        
+        
+        
+688题：两数之和的变形
+关键点：从两边往中间依次检索，遇到不一样的之后，就从两边分别减去一个并检索一次，如果成功那就是改变一个就是true，否则就是改变1个也无法有回文串
+      以下代码没通过，报了一个isvaild没有定义的错误，后续需要debug一下，基本思路可参考
+class Solution(object):
+    def validPalindrome(self, s):
+        flag = 0
+        high, low = len(s)-1, 0
+        while high > low:
+            if s[high] == s[low]:
+                high-=1
+                low+=1
+            else:
+                return isvaild(s, high-1, low)  or isvaild(s, high, low+1)
+        return True
+
+    def isvaild(s, high, low):
+        while high > low:
+            if  s[high] == s[low]:
+                high-=1
+                low+=1
+            else:
+                return False 
