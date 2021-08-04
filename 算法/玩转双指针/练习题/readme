@@ -1,0 +1,14 @@
+633题：两数之和的变形
+关键点：low的值应该取根号C，不然会超出时间限制
+Python代码：
+class Solution(object):
+    def judgeSquareSum(self, c):
+        high, low =0, int(c**0.5)
+        while low >= high:
+            if (high*high + low*low) == c:
+                return True
+            elif (high*high + low*low) > c:
+                low-=1
+            else:
+                high+=1
+        return False
